@@ -65,12 +65,14 @@ export default function ContactSection() {
                 <div className="p-2.5 rounded-xl bg-green-500/10 text-green-400 shrink-0 mt-0.5">
                   <Phone className="w-5 h-5" />
                 </div>
-                <div>
-                  <strong className="text-white block font-semibold">Teléfonos de Atención:</strong>
-                  <span className="text-slate-300 block">{SHOP_CONFIG.contact.phone}</span>
-                  <span className="text-green-400 font-semibold block text-xs">
-                    WhatsApp: {SHOP_CONFIG.contact.whatsappDisplay}
-                  </span>
+                <div className="space-y-1">
+                  <strong className="text-white block font-semibold">Teléfonos & WhatsApp:</strong>
+                  <div className="text-slate-300 text-xs">
+                    <span className="text-orange-400 font-bold">Línea 1 (Taller & Ventas):</span> {SHOP_CONFIG.contact.phonePrimary}
+                  </div>
+                  <div className="text-slate-300 text-xs">
+                    <span className="text-cyan-400 font-bold">Línea 2 (Consultas & Urgencias):</span> {SHOP_CONFIG.contact.phoneSecondary}
+                  </div>
                 </div>
               </div>
 
@@ -99,15 +101,27 @@ export default function ContactSection() {
 
             {/* Acciones directas */}
             <div className="pt-4 border-t border-slate-800 space-y-2.5">
-              <a
-                href={getWhatsAppLink('Hola, necesito consultar la dirección exacta para llevar mi auto al taller.')}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="w-full py-3 px-4 rounded-xl bg-green-600 hover:bg-green-500 text-white font-bold text-xs sm:text-sm flex items-center justify-center gap-2 transition-all shadow-lg shadow-green-600/20"
-              >
-                <MessageSquare className="w-4 h-4" />
-                <span>Escribirnos a WhatsApp</span>
-              </a>
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
+                <a
+                  href={getWhatsAppLink('Hola Radiadores Di Natale! Escribo desde la web a Línea 1.', 'primary')}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="py-3 px-3 rounded-xl bg-green-600 hover:bg-green-500 text-white font-bold text-xs flex items-center justify-center gap-1.5 transition-all shadow-lg shadow-green-600/20"
+                >
+                  <MessageSquare className="w-4 h-4" />
+                  <span>WhatsApp Línea 1</span>
+                </a>
+
+                <a
+                  href={getWhatsAppLink('Hola Radiadores Di Natale! Escribo desde la web a Línea 2.', 'secondary')}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="py-3 px-3 rounded-xl bg-emerald-700 hover:bg-emerald-600 text-white font-bold text-xs flex items-center justify-center gap-1.5 transition-all shadow-lg shadow-emerald-700/20"
+                >
+                  <MessageSquare className="w-4 h-4" />
+                  <span>WhatsApp Línea 2</span>
+                </a>
+              </div>
 
               <a
                 href={SHOP_CONFIG.contact.googleMapsUrl}

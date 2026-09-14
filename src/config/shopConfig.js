@@ -1,27 +1,36 @@
-// Configuración central de la empresa / taller mecánico
-// Podés editar aquí el nombre, teléfonos, dirección y el logo una vez que lo tengas listo.
-
+// Configuración central oficial de Radiadores Di Natale
 export const SHOP_CONFIG = {
-  name: "TERMOMECÁNICA & RADIADORES",
-  shortName: "TermoMecánica",
-  subtitle: "Fabricación de Radiadores • Soldaduras Especiales • Climatización & Mecánica General",
+  name: "Radiadores Di Natale",
+  shortName: "Di Natale",
+  fullName: "Radiadores Di Natale - Taller Mecánico & Climatización",
+  subtitle: "Fabricación y Reparación de Radiadores • Soldaduras Cobre y Aluminio • Climatización & Mecánica",
   
-  // Una vez que tengas los archivos de tus logos, guardalos en /public/ (ej. /public/logo.png)
-  // y cambiá acá la ruta. Si dejás null, la web usará un isotipo técnico profesional automático.
-  logoUrl: null, 
+  // Logo oficial del taller
+  logoUrl: "/logo-dinatale-clean.png", 
   
   contact: {
-    whatsappNumber: "5491100000000", // Reemplazar con el número real (con código de país sin +)
-    whatsappDisplay: "+54 9 11 0000-0000",
-    phone: "(011) 4000-0000",
-    email: "contacto@taller-radiadores.com",
-    address: "Av. Automotor 2450, Zona Industrial",
-    city: "Buenos Aires, Argentina",
-    googleMapsUrl: "https://maps.google.com",
+    // Línea 1 (Ventas, Presupuestos y Taller)
+    phonePrimary: "261 554-5389",
+    whatsappPrimary: "5492615545389",
+    whatsappDisplayPrimary: "+54 9 261 554-5389",
+
+    // Línea 2 (Atención al Cliente, Consultas y Guardia)
+    phoneSecondary: "261 554-5423",
+    whatsappSecondary: "5492615545423",
+    whatsappDisplaySecondary: "+54 9 261 554-5423",
+
+    // Datos generales de contacto
+    whatsappNumber: "5492615545389",
+    whatsappDisplay: "+54 9 261 554-5389",
+    phone: "(261) 554-5389 / (261) 554-5423",
+    email: "radiadoresdinatale@gmail.com",
+    address: "Taller Mecánico & Fábrica de Radiadores",
+    city: "Mendoza, Argentina",
+    googleMapsUrl: "https://maps.google.com/?q=Mendoza,+Argentina",
     schedule: {
       weekdays: "Lunes a Viernes: 8:00 a 18:30 hs",
       saturdays: "Sábados: 8:30 a 13:00 hs",
-      sundays: "Domingos: Cerrado (Guardia de urgencias por WhatsApp)"
+      sundays: "Domingos: Cerrado (Consultas por WhatsApp)"
     }
   },
 
@@ -32,16 +41,20 @@ export const SHOP_CONFIG = {
   },
 
   stats: [
-    { value: "+25", label: "Años de Experiencia" },
-    { value: "+10.000", label: "Radiadores Reparados y Fabricados" },
-    { value: "100%", label: "Garantía en Soldaduras Cu/Al" },
-    { value: "4.9★", label: "Opinión de Nuestros Clientes" },
+    { value: "+25", label: "Años de Trayectoria Di Natale" },
+    { value: "+10.000", label: "Radiadores Fabricados y Reparados" },
+    { value: "100%", label: "Garantía en Soldaduras Cobre y Aluminio" },
+    { value: "4.9★", label: "Recomendación de Nuestros Clientes" },
   ]
 };
 
-// Función auxiliar para armar enlaces directos a WhatsApp con mensaje codificado
-export const getWhatsAppLink = (message) => {
-  const cleanNumber = SHOP_CONFIG.contact.whatsappNumber.replace(/[^0-9]/g, '');
-  const encodedText = encodeURIComponent(message || `Hola ${SHOP_CONFIG.shortName}, me comunico desde la página web para hacer una consulta.`);
+// Función para armar enlaces directos a WhatsApp (permite alternar entre línea 1 y 2)
+export const getWhatsAppLink = (message, line = 'primary') => {
+  const number = line === 'secondary' 
+    ? SHOP_CONFIG.contact.whatsappSecondary 
+    : SHOP_CONFIG.contact.whatsappPrimary;
+  
+  const cleanNumber = number.replace(/[^0-9]/g, '');
+  const encodedText = encodeURIComponent(message || `Hola Radiadores Di Natale, me comunico desde la página web para hacer una consulta.`);
   return `https://wa.me/${cleanNumber}?text=${encodedText}`;
 };

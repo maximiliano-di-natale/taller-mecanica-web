@@ -45,20 +45,23 @@ export default function Navbar({ cartCount = 0, onOpenCart }) {
           </div>
           <div className="flex items-center gap-5">
             <a 
-              href={`tel:${SHOP_CONFIG.contact.phone.replace(/[^0-9]/g, '')}`} 
+              href={getWhatsAppLink('Hola Radiadores Di Natale! Me comunico desde la web (Línea 1).', 'primary')} 
+              target="_blank" 
+              rel="noopener noreferrer"
               className="flex items-center gap-1.5 hover:text-white transition-colors"
             >
               <Phone className="w-3.5 h-3.5 text-green-400" />
-              <span>Taller: <strong>{SHOP_CONFIG.contact.phone}</strong></span>
+              <span>Línea 1: <strong>{SHOP_CONFIG.contact.phonePrimary}</strong></span>
             </a>
             <span className="text-slate-600">|</span>
             <a 
-              href={getWhatsAppLink('Hola! Me comunico desde la web para consultar un presupuesto de taller.')}
+              href={getWhatsAppLink('Hola Radiadores Di Natale! Me comunico desde la web (Línea 2).', 'secondary')} 
               target="_blank" 
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-1.5 text-green-400 hover:text-green-300 font-semibold transition-colors"
+              className="flex items-center gap-1.5 hover:text-white transition-colors"
             >
-              <span>WhatsApp Directo</span>
+              <Phone className="w-3.5 h-3.5 text-green-400" />
+              <span>Línea 2: <strong>{SHOP_CONFIG.contact.phoneSecondary}</strong></span>
             </a>
           </div>
         </div>
@@ -146,16 +149,25 @@ export default function Navbar({ cartCount = 0, onOpenCart }) {
           ))}
           <div className="pt-4 border-t border-slate-800 space-y-2">
             <a
-              href={getWhatsAppLink('Hola! Quisiera consultar por un presupuesto.')}
+              href={getWhatsAppLink('Hola Radiadores Di Natale! Quisiera consultar por un presupuesto (Línea 1).', 'primary')}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center justify-center gap-2 w-full py-3 rounded-xl bg-green-600 hover:bg-green-500 text-white font-bold text-center"
+              className="flex items-center justify-center gap-2 w-full py-2.5 rounded-xl bg-green-600 hover:bg-green-500 text-white font-bold text-xs text-center"
             >
-              <MessageSquare className="w-5 h-5" />
-              <span>Contactar por WhatsApp</span>
+              <MessageSquare className="w-4 h-4" />
+              <span>WhatsApp Línea 1: {SHOP_CONFIG.contact.phonePrimary}</span>
+            </a>
+            <a
+              href={getWhatsAppLink('Hola Radiadores Di Natale! Quisiera consultar por un presupuesto (Línea 2).', 'secondary')}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center justify-center gap-2 w-full py-2.5 rounded-xl bg-emerald-700 hover:bg-emerald-600 text-white font-bold text-xs text-center"
+            >
+              <MessageSquare className="w-4 h-4" />
+              <span>WhatsApp Línea 2: {SHOP_CONFIG.contact.phoneSecondary}</span>
             </a>
             <div className="text-center text-xs text-slate-400 pt-1">
-              {SHOP_CONFIG.contact.address} • {SHOP_CONFIG.contact.phone}
+              {SHOP_CONFIG.contact.city}
             </div>
           </div>
         </div>

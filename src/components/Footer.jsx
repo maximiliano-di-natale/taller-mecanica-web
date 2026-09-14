@@ -67,17 +67,28 @@ export default function Footer() {
             <p className="text-xs text-slate-400">
               ¿Problemas de temperatura con tu auto o maquinaria? Comunicate de inmediato con el jefe de taller:
             </p>
-            <a
-              href={getWhatsAppLink('Hola, tengo una consulta de urgencia por temperatura de mi vehículo.')}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-green-600 hover:bg-green-500 text-white font-bold text-xs transition-all shadow-md shadow-green-600/20"
-            >
-              <MessageSquare className="w-4 h-4" />
-              <span>WhatsApp de Guardia</span>
-            </a>
+            <div className="flex flex-col gap-2">
+              <a
+                href={getWhatsAppLink('Hola Radiadores Di Natale! Consulta a Línea 1.', 'primary')}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 px-3 py-2 rounded-xl bg-green-600 hover:bg-green-500 text-white font-bold text-xs transition-all shadow-md shadow-green-600/20"
+              >
+                <MessageSquare className="w-3.5 h-3.5" />
+                <span>Línea 1: {SHOP_CONFIG.contact.phonePrimary}</span>
+              </a>
+              <a
+                href={getWhatsAppLink('Hola Radiadores Di Natale! Consulta a Línea 2.', 'secondary')}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 px-3 py-2 rounded-xl bg-emerald-700 hover:bg-emerald-600 text-white font-bold text-xs transition-all shadow-md shadow-emerald-700/20"
+              >
+                <MessageSquare className="w-3.5 h-3.5" />
+                <span>Línea 2: {SHOP_CONFIG.contact.phoneSecondary}</span>
+              </a>
+            </div>
             <div className="text-[11px] text-slate-500 pt-1">
-              {SHOP_CONFIG.contact.address} • Tel: {SHOP_CONFIG.contact.phone}
+              {SHOP_CONFIG.contact.city}
             </div>
           </div>
 
