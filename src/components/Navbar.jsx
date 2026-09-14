@@ -10,7 +10,8 @@ import {
   Wrench,
   Flame,
   Snowflake,
-  Package
+  Package,
+  ExternalLink
 } from 'lucide-react';
 import BrandLogo from './BrandLogo';
 import { SHOP_CONFIG, getWhatsAppLink } from '../config/shopConfig';
@@ -34,10 +35,20 @@ export default function Navbar({ cartCount = 0, onOpenCart }) {
       <div className="hidden lg:block bg-slate-900/90 border-b border-slate-800 text-xs text-slate-300 py-1.5 px-4">
         <div className="max-w-7xl mx-auto flex justify-between items-center">
           <div className="flex items-center gap-6">
-            <div className="flex items-center gap-1.5 hover:text-orange-400 transition-colors">
-              <MapPin className="w-3.5 h-3.5 text-orange-400" />
-              <span>{SHOP_CONFIG.contact.address}</span>
-            </div>
+            <a 
+              href={SHOP_CONFIG.contact.googleMapsUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-1.5 hover:text-orange-400 transition-colors group cursor-pointer"
+              title="Abrir ubicación en Google Maps"
+            >
+              <MapPin className="w-3.5 h-3.5 text-orange-400 group-hover:scale-110 transition-transform" />
+              <span>{SHOP_CONFIG.contact.fullAddress}</span>
+              <span className="inline-flex items-center gap-1 px-1.5 py-0.5 rounded bg-orange-500/20 text-[10px] text-orange-400 font-bold border border-orange-500/30 ml-1 group-hover:bg-orange-500 group-hover:text-white transition-all">
+                <span>Maps</span>
+                <ExternalLink className="w-2.5 h-2.5" />
+              </span>
+            </a>
             <div className="flex items-center gap-1.5">
               <Clock className="w-3.5 h-3.5 text-cyan-400" />
               <span>{SHOP_CONFIG.contact.schedule.weekdays}</span>
@@ -108,6 +119,19 @@ export default function Navbar({ cartCount = 0, onOpenCart }) {
             )}
           </button>
 
+          {/* Botón directo Google Maps */}
+          <a
+            href={SHOP_CONFIG.contact.googleMapsUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="hidden md:inline-flex items-center gap-1.5 px-3 py-2 rounded-xl bg-slate-900 border border-slate-700/80 hover:border-orange-500/50 text-slate-200 hover:text-orange-400 text-xs font-bold transition-all shadow-sm group"
+            title="Abrir ubicación en Google Maps (Calle O'Brien 746, Guaymallén)"
+          >
+            <MapPin className="w-4 h-4 text-orange-400 group-hover:scale-110 transition-transform" />
+            <span>Cómo Llegar</span>
+            <ExternalLink className="w-3 h-3 text-slate-400" />
+          </a>
+
           {/* Botón rápido WhatsApp */}
           <a
             href={getWhatsAppLink('Hola, necesito cotizar un trabajo para mi vehículo.')}
@@ -166,8 +190,17 @@ export default function Navbar({ cartCount = 0, onOpenCart }) {
               <MessageSquare className="w-4 h-4" />
               <span>WhatsApp Línea 2: {SHOP_CONFIG.contact.phoneSecondary}</span>
             </a>
+            <a
+              href={SHOP_CONFIG.contact.googleMapsUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center justify-center gap-2 w-full py-2.5 rounded-xl bg-slate-900 border border-slate-700 text-orange-400 hover:text-white font-bold text-xs text-center"
+            >
+              <MapPin className="w-4 h-4 text-orange-400" />
+              <span>Ver Ubicación en Google Maps (O'Brien 746) ↗</span>
+            </a>
             <div className="text-center text-xs text-slate-400 pt-1">
-              {SHOP_CONFIG.contact.city}
+              {SHOP_CONFIG.contact.fullAddress}
             </div>
           </div>
         </div>

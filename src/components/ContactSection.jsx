@@ -55,9 +55,9 @@ export default function ContactSection() {
                   <MapPin className="w-5 h-5" />
                 </div>
                 <div>
-                  <strong className="text-white block font-semibold">Dirección:</strong>
-                  <span className="text-slate-300">{SHOP_CONFIG.contact.address}</span>
-                  <span className="text-slate-400 block text-xs">{SHOP_CONFIG.contact.city}</span>
+                  <strong className="text-white block font-semibold">Dirección & Taller:</strong>
+                  <span className="text-slate-200 font-bold block text-sm">{SHOP_CONFIG.contact.address} ({SHOP_CONFIG.contact.postalCode})</span>
+                  <span className="text-slate-400 block text-xs">{SHOP_CONFIG.contact.neighborhood}, {SHOP_CONFIG.contact.city}</span>
                 </div>
               </div>
 
@@ -195,6 +195,43 @@ export default function ContactSection() {
             </form>
           </div>
 
+        </div>
+
+        {/* Mapa interactivo de Google Maps */}
+        <div className="mt-12 rounded-3xl overflow-hidden border border-slate-800 bg-slate-900 shadow-2xl relative">
+          <div className="p-4 bg-slate-900/90 border-b border-slate-800 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+            <div className="flex items-center gap-3">
+              <div className="p-2 rounded-xl bg-orange-500/10 text-orange-400">
+                <MapPin className="w-5 h-5" />
+              </div>
+              <div>
+                <strong className="text-white text-sm block">Ubicación del Taller: Calle O'Brien 746, Guaymallén, Mendoza</strong>
+                <span className="text-xs text-slate-400">Código Postal 5519 • Recepción de vehículos y fábrica de radiadores</span>
+              </div>
+            </div>
+            <a
+              href={SHOP_CONFIG.contact.googleMapsUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl bg-orange-500 hover:bg-orange-400 text-white font-bold text-xs shrink-0 transition-all shadow-md shadow-orange-500/20"
+            >
+              <span>Abrir en Google Maps</span>
+              <ExternalLink className="w-3.5 h-3.5" />
+            </a>
+          </div>
+          <div className="h-80 w-full relative">
+            <iframe
+              title="Ubicación Radiadores Di Natale"
+              src={SHOP_CONFIG.contact.googleMapsEmbedUrl}
+              width="100%"
+              height="100%"
+              style={{ border: 0 }}
+              allowFullScreen=""
+              loading="lazy"
+              referrerPolicy="no-referrer-when-downgrade"
+              className="w-full h-full grayscale contrast-125 opacity-90 hover:grayscale-0 transition-all duration-500"
+            ></iframe>
+          </div>
         </div>
 
       </div>

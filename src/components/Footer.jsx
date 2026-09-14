@@ -87,9 +87,16 @@ export default function Footer() {
                 <span>Línea 2: {SHOP_CONFIG.contact.phoneSecondary}</span>
               </a>
             </div>
-            <div className="text-[11px] text-slate-500 pt-1">
-              {SHOP_CONFIG.contact.city}
-            </div>
+            <a
+              href={SHOP_CONFIG.contact.googleMapsUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-[11px] text-slate-400 hover:text-orange-400 transition-colors pt-1 flex items-center gap-1.5"
+              title="Abrir en Google Maps"
+            >
+              <MapPin className="w-3.5 h-3.5 text-orange-400 shrink-0" />
+              <span>{SHOP_CONFIG.contact.fullAddress} ↗</span>
+            </a>
           </div>
 
         </div>

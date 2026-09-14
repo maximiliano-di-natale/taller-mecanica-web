@@ -19,14 +19,18 @@ export const SHOP_CONFIG = {
     whatsappSecondary: "5492615545423",
     whatsappDisplaySecondary: "+54 9 261 554-5423",
 
-    // Datos generales de contacto
+    // Datos generales de contacto y ubicación
     whatsappNumber: "5492615545389",
     whatsappDisplay: "+54 9 261 554-5389",
     phone: "(261) 554-5389 / (261) 554-5423",
     email: "radiadoresdinatale@gmail.com",
-    address: "Taller Mecánico & Fábrica de Radiadores",
-    city: "Mendoza, Argentina",
-    googleMapsUrl: "https://maps.google.com/?q=Mendoza,+Argentina",
+    address: "Calle O'Brien 746",
+    neighborhood: "Guaymallén",
+    postalCode: "CP 5519",
+    city: "Guaymallén, Mendoza, Argentina",
+    fullAddress: "Calle O'Brien 746, CP 5519, Guaymallén, Mendoza",
+    googleMapsUrl: "https://www.google.com/maps/search/?api=1&query=Calle+O%27Brien+746,+Guaymall%C3%A9n,+Mendoza",
+    googleMapsEmbedUrl: "https://maps.google.com/maps?q=Calle+O%27Brien+746,+Guaymall%C3%A9n,+Mendoza&t=&z=16&ie=UTF8&iwloc=&output=embed",
     schedule: {
       weekdays: "Lunes a Viernes: 8:00 a 18:30 hs",
       saturdays: "Sábados: 8:30 a 13:00 hs",
