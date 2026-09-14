@@ -32,8 +32,8 @@ export const SHOP_CONFIG = {
     googleMapsUrl: "https://www.google.com/maps/search/?api=1&query=Calle+O%27Brien+746,+Guaymall%C3%A9n,+Mendoza",
     googleMapsEmbedUrl: "https://maps.google.com/maps?q=Calle+O%27Brien+746,+Guaymall%C3%A9n,+Mendoza&t=&z=16&ie=UTF8&iwloc=&output=embed",
     schedule: {
-      weekdays: "Lunes a Viernes: 8:00 a 18:30 hs",
-      saturdays: "Sábados: 8:30 a 13:00 hs",
+      weekdays: "Lunes a Viernes: 8:30 a 17:30 hs",
+      saturdays: "Sábados: Con guardia por WhatsApp",
       sundays: "Domingos: Cerrado (Consultas por WhatsApp)"
     }
   },
